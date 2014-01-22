@@ -6,15 +6,15 @@
   .large-12.columns
     .row
       -@listings.each do |listing|
-        %ul.large-3.columns.listing
+        %ul.large-3.medium-4.small-12.columns.listing
           %li
             %h5= listing.title
-          %li.panel
+          %li
             = image_tag(listing.image_url)
-          %li.panel
-            = listing.date_of_birth
-          %li.panel
-            = listing.date_of_death
+          / %li.panel
+          /   = listing.date_of_birth
+          / %li.panel
+          /   = listing.date_of_death
           %li.panel
             = truncate(strip_tags(listing.description), :length => 200)
           %li.panel
@@ -25,14 +25,15 @@
             %h6 Meeting Time
             %br/
             = listing.meeting_time
+          / %li.panel
+          /   = listing.comments
           %li.panel
-            = listing.comments
-          .actions_bar.large-12.columns.panel
-            = link_to 'See Full Listing', listing
-          .edit_bar
-            .large-6.columns.panel
-              = link_to 'Edit', edit_listing_path(listing)
-            .large-6.columns.panel
-              = link_to 'Delete', listing, :method => :delete, :data => {:confirm => 'Are you Sure ?'}
+            .actions_bar.large-12.columns.panel
+              = link_to 'See Full Listing', listing
+            .edit_bar.row
+              .large-6.columns.panel
+                = link_to 'Edit', edit_listing_path(listing)
+              .large-6.columns.panel
+                = link_to 'Delete', listing, :method => :delete, :data => {:confirm => 'Are you Sure ?'}
 
     = link_to 'New Listing', new_listing_path
