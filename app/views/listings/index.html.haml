@@ -1,33 +1,38 @@
-%h1 Listing listings
+.row
+  .large-12.columns.panel
+    %h1 All Listings
 
-%table
-  %tr
-    %th Title
-    %th Description
-    %th Date of birth
-    %th Image url
-    %th Meeting venue
-    %th Meeting time
-    %th Date of death
-    %th Comments
-    %th
-    %th
-    %th
+.row
+  .large-12.columns
+    .row
+      -@listings.each do |listing|
+        %ul.large-3.columns.listing
+          %li
+            %h5= listing.title
+          %li.panel
+            = image_tag(listing.image_url)
+          %li.panel
+            = listing.date_of_birth
+          %li.panel
+            = listing.date_of_death
+          %li.panel
+            = truncate(strip_tags(listing.description), :length => 200)
+          %li.panel
+            %h6 Meeting Venue
+            %br/
+            = listing.meeting_venue
+          %li.panel
+            %h6 Meeting Time
+            %br/
+            = listing.meeting_time
+          %li.panel
+            = listing.comments
+          .actions_bar.large-12.columns.panel
+            = link_to 'See Full Listing', listing
+          .edit_bar
+            .large-6.columns.panel
+              = link_to 'Edit', edit_listing_path(listing)
+            .large-6.columns.panel
+              = link_to 'Delete', listing, :method => :delete, :data => {:confirm => 'Are you Sure ?'}
 
-  - @listings.each do |listing|
-    %tr
-      %td= listing.title
-      %td= listing.description
-      %td= listing.date_of_birth
-      %td= listing.image_url
-      %td= listing.meeting_venue
-      %td= listing.meeting_time
-      %td= listing.date_of_death
-      %td= listing.comments
-      %td= link_to 'Show', listing
-      %td= link_to 'Edit', edit_listing_path(listing)
-      %td= link_to 'Destroy', listing, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Listing', new_listing_path
+    = link_to 'New Listing', new_listing_path

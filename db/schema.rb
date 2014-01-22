@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140121191906) do
+ActiveRecord::Schema.define(version: 20140122073652) do
 
   create_table "listings", force: true do |t|
     t.string   "title"
@@ -19,8 +19,9 @@ ActiveRecord::Schema.define(version: 20140121191906) do
     t.date     "date_of_birth"
     t.string   "image_url"
     t.text     "meeting_venue"
-    t.date     "meeting_time"
+    t.datetime "meeting_time"
     t.date     "date_of_death"
+    t.text     "comments"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
