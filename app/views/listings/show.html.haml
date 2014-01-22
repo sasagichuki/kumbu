@@ -1,0 +1,30 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @listing.title
+%p
+  %b Description:
+  = @listing.description
+%p
+  %b Date of birth:
+  = @listing.date_of_birth
+%p
+  %b Image url:
+  = @listing.image_url
+%p
+  %b Meeting venue:
+  = @listing.meeting_venue
+%p
+  %b Meeting time:
+  = @listing.meeting_time
+%p
+  %b Date of death:
+  = @listing.date_of_death
+%p
+  %b Comments:
+  = @listing.comments
+
+= link_to 'Edit', edit_listing_path(@listing)
+\|
+= link_to 'Back', listings_path

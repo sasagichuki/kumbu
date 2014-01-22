@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  description: MyText
+  date_of_birth: 2014-01-22
+  image_url: MyString
+  meeting_venue: MyText
+  meeting_time: 2014-01-22 10:36:52
+  date_of_death: 2014-01-22
+  comments: MyText
+
+two:
+  title: MyString
+  description: MyText
+  date_of_birth: 2014-01-22
+  image_url: MyString
+  meeting_venue: MyText
+  meeting_time: 2014-01-22 10:36:52
+  date_of_death: 2014-01-22
+  comments: MyText

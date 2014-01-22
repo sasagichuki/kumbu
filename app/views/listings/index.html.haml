@@ -1,0 +1,33 @@
+%h1 Listing listings
+
+%table
+  %tr
+    %th Title
+    %th Description
+    %th Date of birth
+    %th Image url
+    %th Meeting venue
+    %th Meeting time
+    %th Date of death
+    %th Comments
+    %th
+    %th
+    %th
+
+  - @listings.each do |listing|
+    %tr
+      %td= listing.title
+      %td= listing.description
+      %td= listing.date_of_birth
+      %td= listing.image_url
+      %td= listing.meeting_venue
+      %td= listing.meeting_time
+      %td= listing.date_of_death
+      %td= listing.comments
+      %td= link_to 'Show', listing
+      %td= link_to 'Edit', edit_listing_path(listing)
+      %td= link_to 'Destroy', listing, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Listing', new_listing_path
