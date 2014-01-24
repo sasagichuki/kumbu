@@ -14,7 +14,7 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
-Design_and_ref/*
+Design_and_refs/*
 .DS_Store
 Design_and_store
 .gitignore

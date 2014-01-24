@@ -10,30 +10,32 @@
           %li
             %h5= listing.title
           %li
-            = image_tag(listing.image_url)
+            = image_tag listing.photo.url(:medium)
           / %li.panel
           /   = listing.date_of_birth
           / %li.panel
           /   = listing.date_of_death
-          %li.panel
-            = truncate(strip_tags(listing.description), :length => 200)
-          %li.panel
-            %h6 Meeting Venue
+          %li.desc.hide-for-small-only
+            %p= truncate(strip_tags(listing.description), :length => 200)
+          %li
+            %h6.panel Meeting Venue
             %br/
             = listing.meeting_venue
-          %li.panel
-            %h6 Meeting Time
+          %li
+            %h6.panel Meeting Time
             %br/
             = listing.meeting_time
           / %li.panel
           /   = listing.comments
-          %li.panel
-            .actions_bar.large-12.columns.panel
-              = link_to 'See Full Listing', listing
-            .edit_bar.row
-              .large-6.columns.panel
-                = link_to 'Edit', edit_listing_path(listing)
-              .large-6.columns.panel
-                = link_to 'Delete', listing, :method => :delete, :data => {:confirm => 'Are you Sure ?'}
+          %li.row
+            .actions_bar.large-12.columns
+              .button.small-12.columns= link_to 'See Full Listing', listing
+              .button.small-6.columns= link_to 'Edit', edit_listing_path(listing)
+              .button.small-6.columns= link_to 'Delete', listing, :method => :delete, :data => {:confirm => 'Are you Sure ?'}
 
     = link_to 'New Listing', new_listing_path
+
+/ .row
+/   .large-12.columns
+/     = form_for @listing, :url => listings_path, :html => {:multipart => true } do |form|
+/     = form.file_field :photo

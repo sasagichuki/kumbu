@@ -24,6 +24,7 @@ class ListingsController < ApplicationController
   # POST /listings
   # POST /listings.json
   def create
+
     @listing = Listing.new(listing_params)
 
     respond_to do |format|
@@ -69,6 +70,6 @@ class ListingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
-      params.require(:listing).permit(:title, :description, :date_of_birth, :image_url, :meeting_venue, :meeting_time, :date_of_death, :comments)
+      params.require(:listing).permit(:title, :description, :date_of_birth, :image_url, :meeting_venue, :meeting_time, :date_of_death, :comments, :photo)
     end
 end

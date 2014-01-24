@@ -5,6 +5,21 @@
 .listing{
 
   margin-left: 0px;
-  li {list-style-type: none; }
-  h5 {color: #FF0000; }
+
+  .desc{ margin-bottom: 10px; font-size: 7px;  }
+
+  li {list-style-type: none;
+
+      h5 {color: #FF0000; }
+      img {width: 100%; margin-bottom: 10px;  }
+     }
+
 }
+
+@media only screen and (max-width: 40em){
+        .listing{
+          li {
+            img {width: 300px; }
+          }
+        }
+      }
