@@ -33,6 +33,8 @@ gem 'jbuilder', '~> 1.2'
 # Adding Paper Clip
 gem "paperclip", "~> 3.0"
 
+gem 'devise'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

@@ -1,4 +1,5 @@
 Kumbukumbu::Application.routes.draw do
+  devise_for :owners
   resources :listings
 
   # resources :home

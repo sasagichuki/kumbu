@@ -9,4 +9,7 @@
     = csrf_meta_tags
 %body
     = yield
+    %p.notice=notice
+    %p.notice=alert
+
     = javascript_include_tag "application"
