@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3b75aff0-4ee7-420a-9f0f-9c39ca950a81" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/listings/index.html.haml" afterPath="$PROJECT_DIR$/app/views/listings/index.html.haml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/devise/registrations/new.html.erb" afterPath="$PROJECT_DIR$/app/views/devise/registrations/new.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/database.yml" afterPath="$PROJECT_DIR$/config/database.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="kumbukumbu.iws" />
@@ -45,7 +42,7 @@
       <file leaf-file-name="registration_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/registration_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="4" selection-start="108" selection-end="113" vertical-scroll-proportion="0.13043478">
+            <state line="11" column="4" selection-start="108" selection-end="109" vertical-scroll-proportion="0.23913044">
               <folding />
             </state>
           </provider>
@@ -677,7 +674,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/registration_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="4" selection-start="108" selection-end="113" vertical-scroll-proportion="0.13043478">
+        <state line="11" column="4" selection-start="108" selection-end="109" vertical-scroll-proportion="0.23913044">
           <folding />
         </state>
       </provider>
