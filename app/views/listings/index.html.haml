@@ -1,41 +1,42 @@
 .row
   .large-12.columns.panel
     %h1 All Listings
+    -if user_signed_in?
+      .row
+        .large-12.columns
+          %h3>you have succesfully signed in
+          .row
+            -@listings.each do |listing|
+              %ul.large-3.medium-4.small-12.columns.listing
+                %li
+                  %h5= listing.title
+                %li
+                  = image_tag listing.photo.url(:medium)
+                / %li.panel
+                /   = listing.date_of_birth
+                / %li.panel
+                /   = listing.date_of_death
+                %li.desc.hide-for-small-only
+                  %p= truncate(strip_tags(listing.description), :length => 200)
+                %li
+                  %h6.panel Meeting Venue
+                  %br/
+                  = listing.meeting_venue
+                %li
+                  %h6.panel Meeting Time
+                  %br/
+                  = listing.meeting_time
+                / %li.panel
+                /   = listing.comments
+                %li.row
+                  .actions_bar.large-12.columns
+                    .button.small-12.columns= link_to 'See Full Listing', listing
+                    .button.small-6.columns= link_to 'Edit', edit_listing_path(listing)
+                    .button.small-6.columns= link_to 'Delete', listing, :method => :delete, :data => {:confirm => 'Are you Sure ?'}
 
-.row
-  .large-12.columns
-    .row
-      -@listings.each do |listing|
-        %ul.large-3.medium-4.small-12.columns.listing
-          %li
-            %h5= listing.title
-          %li
-            = image_tag listing.photo.url(:medium)
-          / %li.panel
-          /   = listing.date_of_birth
-          / %li.panel
-          /   = listing.date_of_death
-          %li.desc.hide-for-small-only
-            %p= truncate(strip_tags(listing.description), :length => 200)
-          %li
-            %h6.panel Meeting Venue
-            %br/
-            = listing.meeting_venue
-          %li
-            %h6.panel Meeting Time
-            %br/
-            = listing.meeting_time
-          / %li.panel
-          /   = listing.comments
-          %li.row
-            .actions_bar.large-12.columns
-              .button.small-12.columns= link_to 'See Full Listing', listing
-              .button.small-6.columns= link_to 'Edit', edit_listing_path(listing)
-              .button.small-6.columns= link_to 'Delete', listing, :method => :delete, :data => {:confirm => 'Are you Sure ?'}
+          = link_to 'New Listing', new_listing_path
 
-    = link_to 'New Listing', new_listing_path
-
-/ .row
-/   .large-12.columns
-/     = form_for @listing, :url => listings_path, :html => {:multipart => true } do |form|
-/     = form.file_field :photo
+    -else
+      %h1 You need to sign in or sign up
+      = link_to "Sign In", new_user_session_path, :method => :get
+      = link_to "Sign up", new_user_registration_path, :method => :get
