@@ -1,6 +1,7 @@
 Kumbukumbu::Application.routes.draw do
   devise_for :users
   resources :listings
+  resource :registration
 
   # resources :home
   # get "home/index"

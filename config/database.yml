@@ -14,3 +14,12 @@ test:
   username: cgichuki
   password:
   host: localhost
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: kumbu
+  pool: 5
+  username: cgichuki
+  password:
+  # host: localhost
