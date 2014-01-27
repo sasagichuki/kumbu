@@ -9,20 +9,22 @@
           %h5= listing.title
         %li
           = image_tag listing.photo.url(:medium)
-        / %li.panel
-        /   = listing.date_of_birth
-        / %li.panel
-        /   = listing.date_of_death
+        %li
+          .row
+            .small-6.columns
+              = listing.date_of_birth
+            .small-6.columns
+              = listing.date_of_death
         %li.desc.hide-for-small-only
           %p= truncate(strip_tags(listing.description), :length => 200)
-        %li
-          %h6.panel Meeting Venue
-          %br/
-          = listing.meeting_venue
-        %li
-          %h6.panel Meeting Time
-          %br/
-          = listing.meeting_time
+        / %li
+        /   %h6.panel Meeting Venue
+        /   %br/
+        /   = listing.meeting_venue
+        / %li
+        /   %h6.panel Meeting Time
+        /   %br/
+        /   = listing.meeting_time
         / %li.panel
         /   = listing.comments
         %li.row
