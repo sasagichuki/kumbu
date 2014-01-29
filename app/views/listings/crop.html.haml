@@ -1,0 +1,6 @@
+%h1 Crop Image
+= image_tag @listing.photo.url(:large), :id => "cropbox"
+=form_for @listing do |f|
+  -for attribute in [:crop_x, :crop_y, :crop_w, :crop_h]
+    =f.text_field attribute, :id => attribute
+  %p= f.submit "Crop"

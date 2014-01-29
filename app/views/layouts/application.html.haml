@@ -4,12 +4,30 @@
     %meta{:charset => "utf-8"}
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
     %title= content_for?(:title) ? yield(:title) : "Kumbu Kumbu"
+    = stylesheet_link_tag "jquery.Jcrop"
+    = javascript_include_tag "jquery.Jcrop.min"
     = stylesheet_link_tag    "application"
     = javascript_include_tag "vendor/modernizr"
     = csrf_meta_tags
+    =yield(:head)
 %body
     = yield
     %p.notice=notice
     %p.notice=alert
 
     = javascript_include_tag "application"
+    :javascript
+        $(function(){
+          $("#cropbox").Jcrop({
+                onChange: update_crop,
+                onSelect: update_crop,
+                setSelect: [0,0,500,500],
+                aspectRatio: 1
+            });
+        });
+        function update_crop(coords){
+            $("#crop_x").val(coords.x);
+            $("#crop_y").val(coords.y);
+            $("#crop_w").val(coords.w);
+            $("#crop_h").val(coords.h);
+        }

@@ -26,14 +26,21 @@ class ListingsController < ApplicationController
   def create
 
     @listing = Listing.new(listing_params)
+    # @listing_update = Listing.edit(listing_params)
 
     respond_to do |format|
       if @listing.save
-        format.html { redirect_to @listing, notice: 'Listing was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @listing }
+        # redirect_to @listing,
+        # format.html { notice: 'Listing was successfully created.' }
+        # format.json { render action: 'show', status: :created, location: @listing }
+        if params[:listing][:photo].blank?
+          redirect_to @listing
+        else
+          format.html {render :action => "crop"}
+        end
       else
         format.html { render action: 'new' }
-        format.json { render json: @listing.errors, status: :unprocessable_entity }
+        # format.json { render json: @listing.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -43,11 +50,17 @@ class ListingsController < ApplicationController
   def update
     respond_to do |format|
       if @listing.update(listing_params)
-        format.html { redirect_to @listing, notice: 'Listing was successfully updated.' }
-        format.json { head :no_content }
+        # redirect_to @listing,
+        # format.html { notice: 'Listing was successfully updated.' }
+        # format.json { head :no_content }
+        if params[:listing][:photo].blank?
+          redirect_to @listing
+        else
+          format.html {render :action => "crop"}
+        end
       else
         format.html { render action: 'edit' }
-        format.json { render json: @listing.errors, status: :unprocessable_entity }
+        # format.json { render json: @listing.errors, status: :unprocessable_entity }
       end
     end
   end
